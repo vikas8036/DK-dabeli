@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DK Dabeli</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+    }
+    header {
+      background: #e63946;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+    }
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .item {
+      background: white;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .item img {
+      width: 100%;
+      height: 120px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .item h3 {
+      margin: 10px 0 5px;
+    }
+    .item p {
+      color: green;
+      font-weight: bold;
+    }
+    form {
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    input, textarea, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #25d366;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #20b954;
+    }
+    .contact {
+      text-align: center;
+      margin: 20px;
+    }
+    .contact a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 18px;
+      text-decoration: none;
+      border-radius: 5px;
+      color: white;
+    }
+    .whatsapp { background: #25d366; }
+    .email { background: #ff9800; }
+    .call { background: #2196F3; }
+  </style>
+</head>
+<body>
+  <header>🍔 DK Dabeli 🍔</header>
+
+  <!-- Menu Section -->
+  <div class="menu">
+    <div class="item">
+      <img src="sadhi.jpg" alt="Sadhi Dabeli">
+      <h3>Sadhi Dabeli</h3>
+      <p>₹20</p>
+    </div>
+    <div class="item">
+      <img src="mayonnaise.jpg" alt="Mayonnaise Dabeli">
+      <h3>Mayonnaise Dabeli</h3>
+      <p>₹30</p>
+    </div>
+    <div class="item">
+      <img src="cheese.jpg" alt="Cheese Dabeli">
+      <h3>Cheese Dabeli</h3>
+      <p>₹30</p>
+    </div>
+    <div class="item">
+      <img src="chocolate.jpg" alt="Chocolate Dabeli">
+      <h3>Chocolate Dabeli</h3>
+      <p>₹40</p>
+    </div>
+    <div class="item">
+      <img src="mayochoco.jpg" alt="Mayonnaise + Chocolate Dabeli">
+      <h3>Mayonnaise + Chocolate</h3>
+      <p>₹40</p>
+    </div>
+    <div class="item">
+      <img src="cheesemayo.jpg" alt="Cheese + Mayonnaise Dabeli">
+      <h3>Cheese + Mayonnaise</h3>
+      <p>₹40</p>
+    </div>
+    <div class="item">
+      <img src="cheesechoco.jpg" alt="Cheese + Chocolate Dabeli">
+      <h3>Cheese + Chocolate</h3>
+      <p>₹50</p>
+    </div>
+  </div>
+
+  <!-- Order Form -->
+  <form id="orderForm">
+    <h2>Place Your Order</h2>
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="text" id="phone" placeholder="Your Phone Number" required>
+    <textarea id="address" placeholder="Your Address" required></textarea>
+    <select id="variety" required>
+      <option value="">-- Select Dabeli --</option>
+      <option>Sadhi Dabeli</option>
+      <option>Mayonnaise Dabeli</option>
+      <option>Cheese Dabeli</option>
+      <option>Chocolate Dabeli</option>
+      <option>Mayonnaise + Chocolate Dabeli</option>
+      <option>Cheese + Mayonnaise Dabeli</option>
+      <option>Cheese + Chocolate Dabeli</option>
+    </select>
+    <input type="number" id="quantity" placeholder="Quantity" required>
+    <button type="button" onclick="sendWhatsApp()">Place Order via WhatsApp</button>
+  </form>
+
+  <!-- Contact Section -->
+  <div class="contact">
+    <h2>📞 Contact Us</h2>
+    <a href="https://wa.me/919373241361" class="whatsapp">WhatsApp Order</a>
+    <a href="mailto:vikaschavan0636@gmail.com" class="email">Email Order</a>
+    <a href="tel:9373241361" class="call">Call Now</a>
+  </div>
+
+  <script>
+    function sendWhatsApp() {
+      let name = document.getElementById("name").value;
+      let phone = document.getElementById("phone").value;
+      let address = document.getElementById("address").value;
+      let variety = document.getElementById("variety").value;
+      let quantity = document.getElementById("quantity").value;
+
+      let message = `Hello, I want to place an order:%0A
+      Name: ${name}%0A
+      Phone: ${phone}%0A
+      Address: ${address}%0A
+      Variety: ${variety}%0A
+      Quantity: ${quantity}`;
+
+      let url = "https://wa.me/919373241361?text=" + message;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
